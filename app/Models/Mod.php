@@ -18,5 +18,7 @@ class Mod extends Model
         'type'
     ];
 
-
+    public function container() {
+        return $this->belongsTo('App\Models\Mod', 'contained_in', 'id');
+    }
 }

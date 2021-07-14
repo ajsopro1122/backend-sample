@@ -22,7 +22,13 @@ class ModController extends Controller
     }
 
     public function store(Request $request) {
-
+        $request->validate([
+            'brand' => 'string|required',
+            'model' => 'string|required',
+            'description' => 'string|required',
+            'contained_in' => 'numeric',
+            'value' => 'numeric|required',
+        ]);
 
         try {
             $mod = Mod::create($request->all());
